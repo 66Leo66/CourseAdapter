@@ -15,6 +15,29 @@ class SUSTechParser(
     private val semesterTerm: String
 ) : Parser("") {
 
+    // 上课时间（教学工作部） https://tao.sustech.edu.cn/shangkeshijian/
+    override fun generateTimeTable(): TimeTable {
+        return TimeTable(
+            name = "南方科技大学", timeList = listOf(
+                TimeDetail(1, "08:00", "08:50"),
+                TimeDetail(2, "09:00", "09:50"),
+                TimeDetail(3, "10:20", "11:10"),
+                TimeDetail(4, "11:20", "12:10"),
+                TimeDetail(5, "14:00", "14:50"),
+                TimeDetail(6, "15:00", "15:50"),
+                TimeDetail(7, "16:20", "17:10"),
+                TimeDetail(8, "17:20", "18:10"),
+                TimeDetail(9, "19:00", "19:50"),
+                TimeDetail(10, "20:00", "20:50"),
+                TimeDetail(11, "21:00", "21:50")
+            )
+        )
+    }
+
+    // 每天课程节数
+    override fun getNodes(): Int = 11
+    
+
     override fun generateCourseList(): List<Course> {
         val userAgent =
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36"
